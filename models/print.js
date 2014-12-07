@@ -1,0 +1,10 @@
+'use strict';
+
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var PrintSchema = new Schema({
+  stl: String
+});
+
+module.exports = mongoose.model('Print', PrintSchema);

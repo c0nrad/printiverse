@@ -1,0 +1,8 @@
+node_modules/
+log.log
+exceptions.log
+.env
+TODO
+exceptions.log
+log.log
+.env

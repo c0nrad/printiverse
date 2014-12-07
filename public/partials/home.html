@@ -1,0 +1,47 @@
+<button ng-click="showNew = !showNew" class="btn btn-success">Add A Request</button>
+
+<form ng-show="showNew" ng-submit="newRequest()">
+  <div class="form-group">
+    <label> Part Title </label>
+    <input type="text" class="form-control" ng-model="request.title">
+  </div>
+
+  <div class="form-group">
+    <label> Picture </label>
+    <input type="text" class="form-control" ng-model="request.picture">
+  </div>
+
+  <div class="form-group">
+    <label> Location </label>
+    <input type="text" class="form-control" ng-model="request.location">
+  </div>
+
+  <div class="form-group">
+    <label> Price </label>
+    <input type="text" class="form-control" ng-model="request.price">
+  </div>
+
+  <button type="submit">Make Request</button>
+</form>
+
+
+<div ng-repeat="request in requests">
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+
+      <div class="row">
+        <div class="col-md-2">
+          <img src="{{request.picture}}" style="width: 100%">
+        </div>
+        <div class="col-md-10">
+          <p style="font-size: 48px" class="pull-right"> {{request.price | currency:"USD$"}} </p>
+          <h3> {{request.title}} </h3>
+          <p> {{request.location}} </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- {{request}} -->
+</div>
