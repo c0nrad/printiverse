@@ -11,7 +11,7 @@ var async=  require('async');
 var _ = require('underscore');
 
 router.get('/', function(req, res, next) {
-  Request.find({}, function(err, requests) {
+  Request.find({job: {$exists: false}}, function(err, requests) {
     if (err) {
       return next(err);
     }
@@ -25,7 +25,6 @@ router.get('/me', function(req, res, next) {
     return next('must be logged in');
   }
 
-  console.log(req.user._id);
   Request.find({user: req.user._id}, function(err, requests) {
     if (err) {
       return next(err);
