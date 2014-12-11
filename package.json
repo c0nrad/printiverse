@@ -21,6 +21,7 @@
     "morgan": "~1.0.0",
     "node-bcrypt": "0.0.1",
     "passport": "^0.2.1",
+    "passport-local": "^1.0.0",
     "static-favicon": "~1.0.0",
     "underscore": "^1.7.0"
   }
