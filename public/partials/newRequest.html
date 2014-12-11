@@ -1,0 +1,17 @@
+<button ng-click="showNew = !showNew" class="btn btn-success">Add A Request</button>
+
+<form ng-show="showNew" ng-submit="newRequest()">
+    <label for="partTitle"> Part Title </label>
+    <input type="text" class="u-full-width" ng-model="request.title" id="partTitle">
+
+    <label for="picture"> Picture </label>
+    <input type="text" class="u-full-width" ng-model="request.picture" id="picture">
+
+    <label for="location"> Location </label>
+    <input type="text" class="u-full-width" ng-model="request.location" id="location">
+
+    <label for="price"> Price </label>
+    <input type="text" class="u-full-width" ng-model="request.price" id="price">
+
+  <button type="submit" class="button-primary">Make Request</button>
+</form>

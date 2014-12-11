@@ -1,0 +1,14 @@
+{
+  "name": "thingiview.js",
+  "homepage": "https://github.com/tbuser/thingiview.js",
+  "_release": "ccd6283ecc",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "ccd6283ecc26415d1703e1a28c0f08bee159848a"
+  },
+  "_source": "https://github.com/tbuser/thingiview.js.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/tbuser/thingiview.js.git",
+  "_direct": true
+}

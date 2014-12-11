@@ -1,0 +1,51 @@
+<div class="row">
+  <div class="three columns">
+    <img ng-src="{{me.picture}}" class="u-full-width">
+    <input type="text" class="u-full-width" ng-model="me.picture" ng-blur="me.$update()">
+
+    <h2> {{me.username}} </h2>
+    User Since: <strong>{{me.ts}}</strong>
+  </div>
+
+
+  <div class="nine columns">
+    <h3> Requests </h3>
+
+    <div ng-repeat="request in requests">
+      <div class="row">
+        <div class="two columns">
+          <img ng-src="{{request.picture}}" style="width: 100%">
+        </div>
+        <div class="seven columns">
+          <p> {{request.title}} <br>
+            {{request.location}} <br>
+            {{request.price | currency:"USD$"}} </p>
+        </div>
+        <div class="three columns">
+          <button>Delete</button>
+          <button>Edit</button>
+        </div>
+      </div>
+    </div>
+
+    <hr>
+
+    <h3> Jobs </h3>
+    <div ng-repeat="job in jobs">
+      <div class="row">
+        <div class="two columns">
+          <img ng-src="{{job.request.picture}}" style="width: 100%">
+        </div>
+        <div class="seven columns">
+          <p> {{job.request.title}} <br>
+            {{job.request.location}} <br>
+            {{job.request.price | currency:"USD$"}} </p>
+          </div>
+          <div class="three columns">
+            <button>Send Message</button>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>

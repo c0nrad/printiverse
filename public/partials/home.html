@@ -1,47 +1,57 @@
-<button ng-click="showNew = !showNew" class="btn btn-success">Add A Request</button>
+<div style="border: 1px solid; border-radius: 5px; padding: 10px 10px 0px 10px; margin-bottom: 20px">
+  <h4> Search </h4>
 
-<form ng-show="showNew" ng-submit="newRequest()">
-  <div class="form-group">
-    <label> Part Title </label>
-    <input type="text" class="form-control" ng-model="request.title">
-  </div>
+  <div class="row" style="margin-bottom: 0px">
+    <div class="four columns">
 
-  <div class="form-group">
-    <label> Picture </label>
-    <input type="text" class="form-control" ng-model="request.picture">
-  </div>
+      <label for="priceRangeInput">Price Range</label>
+      <select class="u-full-width">
+        <option value="Option 1">&lt;$5.00</option>
+        <option value="Option 2">&lt;$10</option>
+        <option value="Option 3">&lt;$20</option>
+        <option value="Option 4">&lt;$50</option>
+        <option value="Option 5">&lt;$100</option>
+        <option value="Option 6">&gt;$100</option>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label> Location </label>
-    <input type="text" class="form-control" ng-model="request.location">
-  </div>
+    <div class="four columns">
+      <label for="shippingTime">Due Date</label>
+      <select class="u-full-width">
+        <option value="Option 1">Tomorrow</option>
+        <option value="Option 2">Two Days</option>
+        <option value="Option 3">Three Days</option>
+        <option value="Option 4">Five Days</option>
+        <option value="Option 5">Week+</option>
+      </select>
+    </div>
 
-  <div class="form-group">
-    <label> Price </label>
-    <input type="text" class="form-control" ng-model="request.price">
-  </div>
-
-  <button type="submit">Make Request</button>
-</form>
-
-
-<div ng-repeat="request in requests">
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-
-      <div class="row">
-        <div class="col-md-2">
-          <img src="{{request.picture}}" style="width: 100%">
-        </div>
-        <div class="col-md-10">
-          <p style="font-size: 48px" class="pull-right"> {{request.price | currency:"USD$"}} </p>
-          <h3> {{request.title}} </h3>
-          <p> {{request.location}} </p>
-        </div>
-      </div>
+    <div class="four columns">
+      <label for="printSize">Print Size</label>
+      <select class="u-full-width">
+        <option value="Option 1">Small</option>
+        <option value="Option 2">Medium</option>
+        <option value="Option 3">Large</option>
+      </select>
     </div>
   </div>
 
-  <!-- {{request}} -->
+  <button class="button-primary u-pull-right">Search</button>
+  <span class="u-cf"> </span>
+</div>
+
+<div ng-repeat="request in requests">
+  <div class="row">
+    <div class="two columns">
+      <img ng-src="{{request.picture}}" style="width: 100%">
+    </div>
+    <div class="seven columns">
+      <h2> {{request.title}} </h3>
+      <p> {{request.location}} </p>
+    </div>
+    <div class="three columns">
+      <p style="font-size: 36px; margin-bottom: 5px" class="u-pull-right"> {{request.price | currency:"USD$"}} </p>
+      <button class="u-pull-right" ng-click="reserveRequest(request._id)">Do Job!</button>
+    </div>
+  </div>
 </div>

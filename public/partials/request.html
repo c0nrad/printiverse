@@ -1,0 +1,93 @@
+
+<form ng-submit="newRequest()">
+
+  <div class="row">
+    <div class="six columns">
+      <div id="viewer" style="width:100%;height:400px"></div>
+    </div>
+    <div class="six columns">
+      <label for="partTitle"> Part Title </label>
+      <input type="text" class="u-full-width" ng-model="request.title" id="partTitle">
+
+      <label for="picture"> Picture </label>
+      <input type="text" class="u-full-width" ng-model="request.picture" id="picture">
+
+      <label for="stl">STL</label>
+      <input type="text" class="u-full-width" ng-model="request.stl" id="stl" ng-blur="reloadModel()" value="https://thingiverse-production.s3.amazonaws.com/assets/c8/c8/86/b5/c9/photo_frame.stl">
+
+      <div ng-if="request.stl">
+        <p> Estimate cost for plastic: <strong> $1.30 </strong> </p>
+      </div>
+
+      <label for="location"> Location </label>
+      <input type="text" class="u-full-width" ng-model="request.location" id="location">
+
+      <label for="price"> Price </label>
+      <input type="text" class="u-full-width" ng-model="request.price" id="price">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="six columns">
+      <legend>Shipping Address</legend>
+
+      <label for="street1">Street Address Line 1</label>
+      <input type="text" class="u-full-width" ng-model="request.shipping.line1">
+
+      <label>Street Address Line 2</label>
+      <input type="text" class="u-full-width" ng-model="request.shipping.line2">
+
+      <label>City</label>
+      <input type="text" class="u-full-width" ng-model="request.shipping.city">
+
+      <label>State</label>
+      <input type="text" class="u-full-width" ng-model="request.shipping.state">
+
+      <label>Zipcode</label>
+      <input type="text" class="u-full-width" ng-model="request.shipping.zipcode">
+    </div>
+
+    <div class="six columns">
+      <legend>Billing Address</legend>
+      <button type="button" ng-click="request.billing = request.shipping">Copy Shipping Address</button>
+      <label for="street1">Street Address Line 1</label>
+      <input type="text" class="u-full-width" ng-model="request.billing.line1">
+
+      <label>Street Address Line 2</label>
+      <input type="text" class="u-full-width" ng-model="request.billing.line2">
+
+      <label>City</label>
+      <input type="text" class="u-full-width" ng-model="request.billing.city">
+
+      <label>State</label>
+      <input type="text" class="u-full-width" ng-model="request.billing.state">
+
+      <label>Zipcode</label>
+      <input type="text" class="u-full-width" ng-model="request.billing.zipcode">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="four columns">
+
+      <label>Card Number</label>
+      <input type="text" class="u-full-width">
+
+      <label>CVC</label>
+      <input type="text" class="u-full-width">
+
+      <label>Expiration Date</label>
+      <input type="text" class="u-full-width">
+    </div>
+    <div class="eight columns">
+      "Legal Mumbo Jumbo: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    </div>
+  </div>
+
+
+  <button type="submit" class="button-primary">Make Request</button>
+</form>

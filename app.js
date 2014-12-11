@@ -6,6 +6,10 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var session   = require('express-session');
+var flash    = require('connect-flash');
+
 
 var app = express();
 
@@ -23,11 +27,15 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(session({ secret: 'ihatemylife-butisthatreallyasecret?' })); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+app.use(flash()); // use connect-flash for flash messages stored in session
+
+
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 require('./models/models');
-console.log('abc');
 app.use('/', require('./routes/api'));
 
 /// catch 404 and forward to error handler
